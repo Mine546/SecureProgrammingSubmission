@@ -51,11 +51,15 @@ make
 
 ___________________________________________________________________________________________________________________________________________________
 Now you are ready to run the code.
+
 client.cpp and server.cpp need to be compiled seperately (with server being run first) (Ensuring that you are in the build directory)
+
 The server can be run by: 
+
 ./main
 
 Clients can then be run by opening as many tabs/terminals and typing in the terminal:
+
 ./client
 
 Ensure you change the parameter in the main function of client and server to the desired IP, depending on which server you wish to connect to.
