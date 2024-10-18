@@ -3,35 +3,50 @@ ________________________________________________________________________________
 Setting up the system:
 
 To run this program, You will need vcpkg which can be downloaded from: https://github.com/microsoft/vcpkg 
+
 If you don't yet have it you can by running --> git clone https://github.com/microsoft/vcpkg 
 
 Then you will need to bootstrap firstly by accessing vcpkg directory: 
+
 cd vcpkg
 
 Then depending on if you are running on Windows or Linux/macOS:
+
 .\bootstrap-vcpkg.bat # For Windows
+
 ./bootstrap-vcpkg.sh  # For Linux/macOS
 
 After this is installed, you will need access to nlohmann/json, openssl, and websocketpp, which can be downloaded by:
+
 ./vcpkg install nlohmann-json websocketpp openssl
 
 This may take a couple minutes...
 
 Given the CMakeLists.txt, before running the code ensure to change the following lines below (Replacing <path-to-vcpkg> with the actual path to vcpkg folder):
+
 set(CMAKE_TOOLCHAIN_FILE "<path-to-vcpkg>/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
+
 include_directories("/home/kien/PACKAGE/Secure-Programming-Assignment/vcpkg/installed/x64-linux/include")
 _________________________________________________________________________________________________________________________________________________________
 EXAMPLE -->  set(CMAKE_TOOLCHAIN_FILE "/home/name/chatsystem/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
+
 where chatsystem is the directory that the client.cpp and server.cpp is located
+
 Make sure that client.cpp and server.cpp are not in the vcpkg directory
 _________________________________________________________________________________________________________________________________________________________
 
 You will then need to make a build to run it in (make directory, go to directory, call cmake on previous directory, and build a cmake project)
+
 Make sure you are then in the directory where all the code is(client.cpp & server.cpp), adjacent to vcpkg.
+
 mkdir build
+
 cd build
+
 cmake -DCMAKE_TOOLCHAIN_FILE=<path-to-vcpkg>/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+
 cmake ..
+
 make
 
 ___________________________________________________________________________________________________________________________________________________
